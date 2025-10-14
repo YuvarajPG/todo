@@ -1,23 +1,52 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: 'dark mono', monospace;
+  font-family: "dark mono", monospace;
   font-weight: 800;
   text-align: center;
 }
 
 body {
-  background-color: antiquewhite;
+  color: white;
+  outline: white;
+  background: #000;
+ /*  background-color: antiquewhite; */
 }
 
 #submit {
+  position: relative;
+  background: antiquewhite;
   border-style: solid;
   padding: 5px;
   border-radius: 5px;
-  border-style: none;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.621);
+  transition: all 0.7s;
 }
 
-#img{
+#submit:hover {
+   box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.621);
+  color: white;
+  background: #000;
+}
+
+.img {
   width: 20px;
   vertical-align: middle;
+}
+
+#todoList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  margin: 15px 0;
+}
+
+.li {
+  width: 50%;
+  justify-content: center;
+  min-width: 10vh;
+  list-style: none;
+color: #000;
+  background: #fff;
 }
