@@ -1,42 +1,36 @@
 const submit = document.getElementById("submit");
 const addTask = document.getElementById("addTask");
 const todoList = document.getElementById("todoList");
+const btn = document.createElement("button");
+const complete = document.getElementById("completed");
+
+complete.style.display = "none"; //default hidden
+let length = 0;
 
 submit.addEventListener("click", (event) => {
-  let li = document.createElement("li");
-  let btn = document.createElement('button');
   if (`${addTask.value}` !== "") {
-    btn.appendChild(li)
+    btn.innerHTML += `<li "class='li'" onclick=deleteFun() id=${length++} >${
+      addTask.value
+    } </li>`;
+    btn.className = "liBtn";
     todoList.appendChild(btn);
-    li.innerText = `${addTask.value}`;
-    li.className = "li";
-    todoList.appendChild(li);
   } else {
-    alert("enter a vaild value");
+    console.log("enter a vaild value");
   }
   addTask.value = "";
 });
 
-
+const deleteFun = (event) => {
+  complete.appendChild(btn)
+  console.log("object");
+  complete.style.display = "block";
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("theme-toggle");
   const body = document.body;
 
-  // Optional: Load theme preference from local storage
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    body.classList.add("dark-mode");
-  }
-
   themeToggle.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
-
-    // Optional: Save theme preference to local storage
-    if (body.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
-    }
   });
 });
