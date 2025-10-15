@@ -9,11 +9,13 @@ let length = 0;
 
 submit.addEventListener("click", (event) => {
   if (`${addTask.value}` !== "") {
-    btn.innerHTML += `<li "class='li'" onclick=deleteFun() id=${length++} >${
+    todoList.innerHTML += `<button class='liBtn' id=${length++}>`+
+    `<li class='li' onclick=deleteFun() id=${length++} >${
       addTask.value
-    } </li>`;
-    btn.className = "liBtn";
-    todoList.appendChild(btn);
+    } </li>
+    </button>
+    `;
+    todoList.appendChild(todoList);
   } else {
     console.log("enter a vaild value");
   }
